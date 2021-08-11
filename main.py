@@ -1,4 +1,5 @@
 from StackLinkedList import StackLinkedList
+from QueueLinkedList import QueueLinkedList
 
 # Code execution starts here
 if __name__ == '__main__' :
@@ -42,3 +43,44 @@ if __name__ == '__main__' :
     print ( "\nstack is empty:", stack.isEmpty () )
 
     # This code is added by Suparna Raut
+
+    # Start with the empty queue
+    queue = QueueLinkedList()
+
+    print ( "Queue operations using doubly linked list" )
+
+    # Insert 4 at the end. So queue becomes 4->None
+    queue.enqueue ( 4 )
+
+    # Insert 5 at the end. So queue becomes 4->5None
+    queue.enqueue ( 5 )
+
+    # Insert 6 at the end. So queue becomes 4->5->6->None
+    queue.enqueue ( 6 )
+
+    # Insert 7 at the end. So queue becomes 4->5->6->7->None
+    queue.enqueue ( 7 )
+
+    # Print the queue
+    queue.printqueue ()
+
+    # Print the first element
+    print ( "\nfirst element is ", queue.first () )
+
+    # Print the queue size
+    print ( "Size of the queue is ", queue.size () )
+
+    # remove the first element
+    queue.dequeue ()
+
+    # remove the first element
+    queue.dequeue ()
+
+    # first two elements are removed
+    # Print the queue
+    print ( "After applying dequeue() two times" )
+    queue.printqueue ()
+
+    # Print True if queue is empty else False
+    print ( "\nqueue is empty:", queue.isEmpty () )
+
