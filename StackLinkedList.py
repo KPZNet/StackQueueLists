@@ -3,7 +3,7 @@
 
 
 # Node class
-class Node :
+class NodeStack :
 
     # Function to initialise the node object
     def __init__(self, data) :
@@ -22,9 +22,9 @@ class StackLinkedList :
     def push(self, data) :
 
         if self.head is None :
-            self.head = Node ( data )
+            self.head = NodeStack ( data )
         else :
-            new_node = Node ( data )
+            new_node = NodeStack ( data )
             self.head.prev = new_node
             new_node.next = self.head
             new_node.prev = None
