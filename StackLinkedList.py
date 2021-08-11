@@ -1,6 +1,7 @@
 # A complete working Python program to demonstrate all
 # stack operations using a doubly linked list
 
+
 # Node class
 class Node :
 

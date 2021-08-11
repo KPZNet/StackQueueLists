@@ -1,6 +1,5 @@
 from StackLinkedList import StackLinkedList
 
-
 # Code execution starts here
 if __name__ == '__main__' :
 
