@@ -1,16 +1,7 @@
+from Nodes import Node
+
 # A complete working Python program to demonstrate all
 # stack operations using a doubly linked list
-
-class BaseNode :
-    def __init__(self, value):
-        self.value = value
-
-class Node :
-    def __init__(self, value) :
-        self.value = value
-        self.next = None
-        self.prev = None
-        BaseNode.__init__ ( self, value )
 
 class BaseStack:
     def push(self, node):

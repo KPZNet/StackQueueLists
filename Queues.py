@@ -1,14 +1,5 @@
-# A complete working Python program to demonstrate all
-# Queue operations using doubly linked list
 
-# Node class
-class NodeQueue :
-
-    # Function to initialise the node object
-    def __init__(self, data) :
-        self.data = data  # Assign data
-        self.next = None  # Initialize next as null
-        self.prev = None  # Initialize prev as null
+from Nodes import NodeQueue
 
 
 class QueueLinkedList :
