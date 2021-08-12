@@ -11,7 +11,6 @@ class NodeQueue :
         self.prev = None  # Initialize prev as null
 
 
-
 class QueueLinkedList :
 
     def __init__(self) :

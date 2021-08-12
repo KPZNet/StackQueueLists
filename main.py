@@ -2,7 +2,6 @@ from Stacks import StackLinkedList
 from QueueLinkedList import QueueLinkedList
 
 
-
 if __name__ == '__main__' :
 
     stack = StackLinkedList ()
