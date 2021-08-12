@@ -1,5 +1,5 @@
 
-from Nodes import NodeQueue
+from Nodes import Node
 
 
 class QueueLinkedList :
@@ -10,10 +10,10 @@ class QueueLinkedList :
 
     def enqueue(self, data) :
         if self.last is None :
-            self.head = NodeQueue ( data )
+            self.head = Node ( data )
             self.last = self.head
         else :
-            self.last.next = NodeQueue ( data )
+            self.last.next = Node ( data )
             self.last.next.prev = self.last
             self.last = self.last.next
 
