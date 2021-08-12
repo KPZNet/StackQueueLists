@@ -26,7 +26,7 @@ class StackLinkedList (BaseStack) :
         cur = self.head.next
         out = ""
         while cur :
-            out += str ( cur.value ) + "->"
+            out += str ( cur.data ) + "->"
             cur = cur.next
         return out[:-3]
 
@@ -65,7 +65,7 @@ class StackLinkedList (BaseStack) :
         remove = self.head.next
         self.head.next = self.head.next.next
         self.size -= 1
-        return remove.value
+        return remove.data
 
 
 
