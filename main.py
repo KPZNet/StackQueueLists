@@ -1,5 +1,5 @@
 from Stacks import StackLinkedList
-from QueueLinkedList import QueueLinkedList
+from Queues import QueueLinkedList
 
 
 if __name__ == '__main__' :
