@@ -1,14 +1,13 @@
-from StackLinkedList import StackLinkedList
+from Stacks import StackLinkedList
 from QueueLinkedList import QueueLinkedList
-from StackLinkedList import Stack
+
 
 
 if __name__ == '__main__' :
 
-
     stack = StackLinkedList ()
 
-    print ( "Stack operations using Doubly LinkedList" )
+    print ( "Stack operations using  LinkedList" )
     stack.push ( 4 )
     stack.push ( 5 )
     stack.push ( 6 )
@@ -16,19 +15,12 @@ if __name__ == '__main__' :
 
     stack.printstack ()
 
-    print ( "\nTop element is ", stack.top () )
-    print ( "Size of the stack is ", stack.size () )
-
-
     stack.pop ()
     stack.pop ()
     stack.printstack ()
 
-    print ( "\nstack is empty:", stack.isEmpty () )
-
-    queue = QueueLinkedList()
-
     print ( "Queue operations using doubly linked list" )
+    queue = QueueLinkedList()
 
     queue.enqueue ( 4 )
     queue.enqueue ( 5 )
@@ -45,13 +37,3 @@ if __name__ == '__main__' :
 
     print ( "\nqueue is empty:", queue.isEmpty () )
 
-    print ("Stack List")
-    stack = Stack ()
-    for i in range ( 1, 11 ) :
-        stack.push ( i )
-    print ( f"Stack: {stack}" )
-
-    for _ in range ( 1, 6 ) :
-        remove = stack.pop ()
-        print ( f"Pop: {remove}" )
-    print ( f"Stack: {stack}" )
