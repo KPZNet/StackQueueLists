@@ -57,8 +57,6 @@ class QueueList(BaseQueue):
             print ( q.data, end="->" )
 
 
-
-
 class QueueLinkedList (BaseQueue) :
 
     def __init__(self) :

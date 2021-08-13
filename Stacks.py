@@ -25,8 +25,7 @@ class BaseStack:
 
 class StackList:
     def __init__(self) :
-        self.head = Node ( "head" )
-        self.size = 0
+        pass
 
     def isEmpty(stk): # checks whether the stack is empty or not
        if stk==[]:
