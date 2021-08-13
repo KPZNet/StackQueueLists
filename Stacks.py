@@ -28,18 +28,15 @@ class StackLinkedList (BaseStack) :
         while cur :
             out += str ( cur.data ) + "->"
             cur = cur.next
-        return out[:-3]
-
+        return out
 
     # Get the current size of the stack
     def getSize(self) :
         return self.size
 
-
     # Check if the stack is empty
     def isEmpty(self) :
         return self.size == 0
-
 
     # Get the top item of the stack
     def peek(self) :
@@ -49,14 +46,12 @@ class StackLinkedList (BaseStack) :
             raise Exception ( "Peeking from an empty stack" )
         return self.head.next.value
 
-
     # Push a value into the stack.
     def push(self, value) :
         node = Node ( value )
         node.next = self.head.next
         self.head.next = node
         self.size += 1
-
 
     # Remove a value from the stack and return.
     def pop(self) :
