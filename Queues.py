@@ -8,6 +8,19 @@ class BaseQueue:
     def dequeue(self) :
         pass
 
+    def first(self) :
+        pass
+
+    def size(self) :
+        pass
+
+    def isEmpty(self) :
+        pass
+
+    def printqueue(self) :
+        pass
+
+
 class QueueList(BaseQueue):
 
     def __init__(self) :
@@ -30,15 +43,13 @@ class QueueList(BaseQueue):
         s = 0
         if not self.isEmpty():
             s = len ( self.queuelist )
-        else:
-            s = 0
         return s
 
     def isEmpty(self) :
+        r = False
         if len ( self.queuelist ) == 0 :
-            return True
-        else :
-            return False
+            r = True
+        return r
 
     def printqueue(self) :
         print ( "queue elements are:" )

@@ -51,7 +51,7 @@ if __name__ == '__main__' :
     queue.enqueue ( 7 )
     queue.printqueue ()
 
-    print ( "\nfirst element is ", queue.first () )
+    print ( "\nfirst element is ", queue.first ().data )
     print ( "Size of the queue is ", queue.size () )
     queue.dequeue ()
     queue.dequeue ()
@@ -59,3 +59,12 @@ if __name__ == '__main__' :
     queue.printqueue ()
 
     print ( "\nqueue is empty:", queue.isEmpty () )
+
+    print("Queue TEST for List")
+    q = QueueList()
+    q.enqueue(1)
+    q.enqueue(2)
+    q.enqueue(3)
+
+    d = q.dequeue()
+    print(d.data)
