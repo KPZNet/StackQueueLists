@@ -26,7 +26,6 @@ class QueueList(BaseQueue):
             f = self.queuelist[0]
         return f
 
-
     def size(self) :
         s = 0
         if not self.isEmpty():
