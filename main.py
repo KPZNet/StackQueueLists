@@ -9,6 +9,8 @@ if __name__ == '__main__' :
     stack = StackList ()
 
     print ( "Stack operations using LIST" )
+
+    print ( "Push 4,5,6,7,8,10" )
     stack.push ( 4 )
     stack.push ( 5 )
     stack.push ( 6 )
@@ -18,13 +20,19 @@ if __name__ == '__main__' :
 
     print(stack)
 
-    stack.pop ()
-    stack.pop ()
+    p = stack.pop ()
+    print("Pop {0}".format(p) )
+
+    p = stack.pop ()
+    print("Pop {0}".format(p) )
+
+    print("Stack is now:")
     print(stack)
 
     stack = StackLinkedList ()
 
     print ( "Stack operations using  LinkedList" )
+    print ("Push 4,5,6,7,8,10")
     stack.push ( 4 )
     stack.push ( 5 )
     stack.push ( 6 )
@@ -34,57 +42,52 @@ if __name__ == '__main__' :
 
     print(stack)
 
-    stack.pop ()
-    stack.pop ()
-    print(stack)
+    p = stack.pop ()
+    print("Pop {0}".format(p) )
 
-    print ( "Queue operations using doubly linked list" )
+    p = stack.pop ()
+    print("Pop {0}".format(p) )
+
+    print ( "Stack is now:" )
+    print ( stack )
+
+    print ( "Queue operations using linked list" )
     queue = QueueLinkedList()
 
+    print ( "Enqueue: 4,5,6,7,8,10" )
     queue.enqueue ( 4 )
     queue.enqueue ( 5 )
     queue.enqueue ( 6 )
     queue.enqueue ( 7 )
     queue.enqueue ( 8 )
     queue.enqueue ( 10 )
-    queue.printqueue ()
+    print(queue)
 
-    print ( "\nfirst element is ", queue.first () )
-    print ( "Size of the queue is ", queue.size () )
-    queue.dequeue ()
-    queue.dequeue ()
+    p = queue.dequeue ()
+    print("Dequeued {0}".format(p))
+    p = queue.dequeue ()
+    print ( "Dequeued {0}".format ( p ) )
     print ( "After applying dequeue() two times" )
-    queue.printqueue ()
-
-    print ( "\nqueue is empty:", queue.isEmpty () )
+    print(queue)
 
     print("Queue List ----------------------------")
 
     print ( "Queue operations using list" )
     queue = QueueList()
 
+    print ( "Enqueue: 4,5,6,7,8,10" )
     queue.enqueue ( 4 )
     queue.enqueue ( 5 )
     queue.enqueue ( 6 )
     queue.enqueue ( 7 )
     queue.enqueue ( 8 )
     queue.enqueue ( 10 )
-    queue.printqueue ()
+    print(queue)
 
-    print ( "\nfirst element is ", queue.first ().data )
-    print ( "Size of the queue is ", queue.size () )
-    queue.dequeue ()
-    queue.dequeue ()
+    p = queue.dequeue ()
+    print("Dequeued {0}".format(p))
+    p = queue.dequeue ()
+    print ( "Dequeued {0}".format ( p ) )
     print ( "After applying dequeue() two times" )
     queue.printqueue ()
 
-    print ( "\nqueue is empty:", queue.isEmpty () )
-
-    print("Queue TEST for List")
-    q = QueueList()
-    q.enqueue(1)
-    q.enqueue(2)
-    q.enqueue(3)
-
-    d = q.dequeue()
-    print(d.data)

@@ -41,15 +41,13 @@ class StackList(BaseStack):
        top=len(self.stk)-1
 
     def pop(self):
-       if self.isEmpty(): # verifies whether the stack is empty or not
+        r = None
+        if self.isEmpty(): # verifies whether the stack is empty or not
           print("Underflow")
-       else: # Allow deletions from the stack
-          item=self.stk.pop()
-          if len(self.stk)==0:
-             top=None
-          else:
-             top=len(self.stk)
-             print("Popped item is "+str(item))
+        else: # Allow deletions from the stack
+          r =self.stk.pop()
+        return r
+
 
     def printstack(self):
         print(self)
@@ -62,7 +60,7 @@ class StackList(BaseStack):
         else :
             top = len ( self.stk ) - 1
             for i in range ( top, -1, -1 ) :
-                ret +=( ( str ( self.stk[i] ) ) + "->")
+                ret +=( ( str ( self.stk[i] ) ) + "\n")
         return ret
 
 class StackLinkedList (BaseStack) :
@@ -81,7 +79,7 @@ class StackLinkedList (BaseStack) :
         cur = self.head.next
         out = ""
         while cur :
-            out += str ( cur.data ) + "->"
+            out += str ( cur.data ) + "\n"
             cur = cur.next
         return out
 

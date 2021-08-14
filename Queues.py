@@ -31,7 +31,8 @@ class QueueList(BaseQueue):
         self.queuelist.append(n)
 
     def dequeue(self) :
-        return self.queuelist.pop()
+        r = self.queuelist.pop()
+        return r.data
 
     def first(self) :
         f = None
@@ -51,57 +52,53 @@ class QueueList(BaseQueue):
             r = True
         return r
 
-    def printqueue(self) :
-        print ( "queue elements are:" )
+    def __str__(self):
+        r = ""
         for q in self.queuelist:
-            print ( q.data, end="->" )
+            r += str( q.data ) + " : "
+        return r
 
 
-class QueueLinkedList (BaseQueue) :
+
+# A class to represent a queue
+class QueueLinkedList(BaseQueue) :
 
     def __init__(self) :
-        self.head = None
-        self.last = None
-
-    def enqueue(self, data) :
-        if self.last is None :
-            self.head = Node ( data )
-            self.last = self.head
-        else :
-            self.last.next = Node ( data )
-            self.last.next.prev = self.last
-            self.last = self.last.next
-
-    def dequeue(self) :
-        if self.head is None :
-            return None
-        else :
-            temp = self.head.data
-            self.head = self.head.next
-            self.head.prev = None
-            return temp
-
-    def first(self) :
-        return self.head.data
-
-    def size(self) :
-        temp = self.head
-        count = 0
-        while temp is not None :
-            count = count + 1
-            temp = temp.next
-        return count
+        self.front = self.rear = None
 
     def isEmpty(self) :
-        if self.head is None :
-            return True
-        else :
-            return False
+        return self.front == None
 
-    def printqueue(self) :
-        print ( "queue elements are:" )
-        temp = self.head
-        while temp is not None :
-            print ( temp.data, end="->" )
-            temp = temp.next
+    # Method to add an item to the queue
+    def enqueue(self, item) :
+        temp = Node ( item )
+
+        if self.rear == None :
+            self.front = self.rear = temp
+            return
+        self.rear.next = temp
+        self.rear = temp
+
+    # Method to remove an item from queue
+    def dequeue(self) :
+
+        if self.isEmpty () :
+            return
+        temp = self.front
+        self.front = temp.next
+
+        if (self.front == None) :
+            self.rear = None
+        return temp.data
+
+    def __str__(self):
+        r = ""
+        s = self.front
+        while s != None:
+            r += (str(s.data) + " : ")
+            s = s.next
+        return r
+
+
+
 
