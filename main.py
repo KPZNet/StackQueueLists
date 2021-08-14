@@ -2,6 +2,8 @@ from Stacks import StackLinkedList
 from Stacks import StackList
 from Queues import QueueLinkedList
 from Queues import QueueList
+
+import threading
 import time
 
 NANO_TO_MS = 1000000
@@ -58,13 +60,13 @@ class StackRunner:
 if __name__ == '__main__' :
 
     sr = StackRunner()
-    lq_time = sr.RunQueueList(1000, 1000, QueueList())
-    llq_time = sr.RunQueueList ( 1000, 1000, QueueLinkedList () )
+    lq_time = sr.RunQueueList(10000, 1000, QueueList())
+    llq_time = sr.RunQueueList ( 10000, 1000, QueueLinkedList () )
     print ( "RunA List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
 
     lq_time = sr.RunQueueList(10000, 5, QueueList())
     llq_time = sr.RunQueueList ( 10000, 5, QueueLinkedList () )
-    print ( "RunC List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
+    print ( "RunB List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
 
     lq_time = sr.RunQueueList2(10000, 500, 5, QueueList())
     llq_time = sr.RunQueueList2 (10000, 500, 5, QueueList())
