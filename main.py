@@ -56,17 +56,21 @@ if __name__ == '__main__' :
 
     sr = StackRunner()
 
-    lq_time = sr.RunQueueList(10000, 1000, QueueList())
-    llq_time = sr.RunQueueList ( 10000, 1000, QueueLinkedList () )
-    print ( "RunA List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
+    lq_time = sr.RunQueueList(1000, 1000, QueueList())
+    llq_time = sr.RunQueueList ( 1000, 1000, QueueLinkedList () )
+    print ( "Run A List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
 
-    lq_time = sr.RunQueueList(10000, 5, QueueList())
-    llq_time = sr.RunQueueList ( 10000, 5, QueueLinkedList () )
-    print ( "RunB List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
+    lq_time = sr.RunQueueList(1, 10000, QueueList())
+    llq_time = sr.RunQueueList ( 1, 10000, QueueLinkedList () )
+    print ( "Run B List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
+
+    lq_time = sr.RunQueueList(10000, 1, QueueList())
+    llq_time = sr.RunQueueList ( 10000, 1, QueueLinkedList () )
+    print ( "Run C List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
 
     lq_time = sr.RunQueueList2(10000, 500, 5, QueueList())
-    llq_time = sr.RunQueueList2 (10000, 500, 5, QueueList())
-    print ( "RunB List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
+    llq_time = sr.RunQueueList2 (10000, 500, 5, QueueLinkedList())
+    print ( "Run D List Type: {0}  vs. LinkedList Type: {1}".format(lq_time, llq_time) )
 
 
 
