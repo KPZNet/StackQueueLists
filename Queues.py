@@ -24,6 +24,8 @@ class QueueList(BaseQueue):
         self.queuelist.append(n)
 
     def dequeue(self) :
+        if self.isEmpty():
+            return None
         r = self.queuelist.pop(0)
         return r.data
 
@@ -58,9 +60,8 @@ class QueueLinkedList(BaseQueue) :
         self.rear = temp
 
     def dequeue(self) :
-
         if self.isEmpty () :
-            return
+            return None
         temp = self.front
         self.front = temp.next
 
