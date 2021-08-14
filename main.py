@@ -4,15 +4,9 @@ from Stacks import StackList
 from Queues import QueueLinkedList
 from Queues import QueueList
 
-import threading
-
-
 import time
 
 NANO_TO_MS = 1000000
-
-
-
 
 class StackRunner:
     def __init__(self):
