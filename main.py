@@ -16,54 +16,7 @@ NANO_TO_MS = 1000000
 
 class StackRunner:
     def __init__(self):
-        self.ls = StackList()
-        self.lls = StackLinkedList()
-        self.ls_timing = 0.0
-        self.lls_timing = 0.0
-        self.threadLock = threading.Lock ()
-        self.flagA = False
-
-
-    def AddtoQueue(self, qu, thr, runs) :
-
-        for k in range ( runs ) :
-            self.threadLock.acquire()
-            qu.enqueue ( k )
-            print("Add Queue Size: {0}".format(qu.qsize()))
-            self.threadLock.release ()
-        self.threadLock.acquire()
-        self.flagA = True
-        self.threadLock.release ()
-
-    def RemovefromQueue(self, qu, thr) :
-        while self.flagA == False:
-            self.threadLock.acquire()
-            qu.dequeue()
-            print("Remove Queue Size: {0}".format(qu.qsize()))
-            self.threadLock.release()
-
-
-
-    def RunThreadedQueues(self):
-        try :
-            q = QueueList ()
-            start_time = time.perf_counter_ns()
-            t1 = threading.Thread ( target=self.AddtoQueue, args=(q, "Thread-1", 1000000) )
-            t1.start()
-
-            t2 = threading.Thread ( target=self.RemovefromQueue, args=(q, "Thread-2") )
-            t2.start()
-            stop_time = time.perf_counter_ns()
-            self.ls_timing = (stop_time - start_time) / NANO_TO_MS
-
-            t1.join()
-            t2.join()
-
-            return self.ls_timing
-
-        except :
-            print ( "Error: unable to start thread" )
-
+        pass
 
     def RunQueueList(self, runs, size, qu):
         print("<<< Queue List RunTimes >>>")
@@ -111,12 +64,6 @@ class StackRunner:
 if __name__ == '__main__' :
 
     sr = StackRunner()
-
-    tm = sr.RunThreadedQueues()
-    print("Thread Time: {0}".format(tm))
-
-    exit(0)
-
 
     lq_time = sr.RunQueueList(10000, 1000, QueueList())
     llq_time = sr.RunQueueList ( 10000, 1000, QueueLinkedList () )
