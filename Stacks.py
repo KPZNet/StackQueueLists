@@ -10,15 +10,6 @@ class BaseStack:
     def pop(self):
         pass
 
-    def peek(self) :
-        pass
-
-    def printstack(self) :
-        pass
-
-    def getSize(self) :
-        pass
-
     def isEmpty(self) :
         pass
 
@@ -48,11 +39,6 @@ class StackList(BaseStack):
           r =self.stk.pop()
         return r
 
-
-    def printstack(self):
-        print(self)
-
-    # String representation of the stack
     def __str__(self) :
         ret = ""
         if self.isEmpty ( ) :
@@ -64,17 +50,10 @@ class StackList(BaseStack):
         return ret
 
 class StackLinkedList (BaseStack) :
-    # Initializing a stack.
-    # Use a dummy node, which is
-    # easier for handling edge cases.
     def __init__(self) :
         self.head = Node ( "head" )
         self.size = 0
 
-    def printstack(self):
-        print(self)
-
-    # String representation of the stack
     def __str__(self) :
         cur = self.head.next
         out = ""
@@ -83,21 +62,9 @@ class StackLinkedList (BaseStack) :
             cur = cur.next
         return out
 
-    # Get the current size of the stack
-    def getSize(self) :
-        return self.size
-
     # Check if the stack is empty
     def isEmpty(self) :
         return self.size == 0
-
-    # Get the top item of the stack
-    def peek(self) :
-        # Sanitary check to see if we
-        # are peeking an empty stack.
-        if self.isEmpty () :
-            raise Exception ( "Peeking from an empty stack" )
-        return self.head.next.value
 
     # Push a value into the stack.
     def push(self, value) :

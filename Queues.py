@@ -8,18 +8,11 @@ class BaseQueue:
     def dequeue(self) :
         pass
 
-    def first(self) :
-        pass
-
-    def size(self) :
-        pass
-
     def isEmpty(self) :
         pass
 
-    def printqueue(self) :
+    def __str__(self):
         pass
-
 
 class QueueList(BaseQueue):
 
@@ -31,20 +24,8 @@ class QueueList(BaseQueue):
         self.queuelist.append(n)
 
     def dequeue(self) :
-        r = self.queuelist.pop()
+        r = self.queuelist.pop(0)
         return r.data
-
-    def first(self) :
-        f = None
-        if not self.isEmpty():
-            f = self.queuelist[0]
-        return f
-
-    def size(self) :
-        s = 0
-        if not self.isEmpty():
-            s = len ( self.queuelist )
-        return s
 
     def isEmpty(self) :
         r = False
@@ -54,13 +35,11 @@ class QueueList(BaseQueue):
 
     def __str__(self):
         r = ""
-        for q in self.queuelist:
-            r += str( q.data ) + " : "
+        for q in reversed(self.queuelist):
+            r += str( q.data ) + " -> "
         return r
 
 
-
-# A class to represent a queue
 class QueueLinkedList(BaseQueue) :
 
     def __init__(self) :
@@ -69,7 +48,6 @@ class QueueLinkedList(BaseQueue) :
     def isEmpty(self) :
         return self.front == None
 
-    # Method to add an item to the queue
     def enqueue(self, item) :
         temp = Node ( item )
 
@@ -79,7 +57,6 @@ class QueueLinkedList(BaseQueue) :
         self.rear.next = temp
         self.rear = temp
 
-    # Method to remove an item from queue
     def dequeue(self) :
 
         if self.isEmpty () :
@@ -95,7 +72,7 @@ class QueueLinkedList(BaseQueue) :
         r = ""
         s = self.front
         while s != None:
-            r += (str(s.data) + " : ")
+            r = (str(s.data) + " -> ") + r
             s = s.next
         return r
 

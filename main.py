@@ -4,90 +4,37 @@ from Queues import QueueLinkedList
 from Queues import QueueList
 
 
+class StackRunner:
+    def __init__(self):
+        self.ls = StackList()
+        self.lls = StackLinkedList()
+        self.ls_timing = 0.0
+        self.lls_timing = 0.0
+
+    def RunQueueList(self, runs, qu):
+        print("Queue List")
+        ll = qu
+        print("Enqueing 5-6-2-10")
+        ll.enqueue ( 5 )
+        ll.enqueue ( 6 )
+        ll.enqueue ( 2 )
+        ll.enqueue ( 10 )
+        print(ll)
+
+        dq = ll.dequeue()
+        print(dq)
+
+
+
+
+
+
 if __name__ == '__main__' :
 
-    stack = StackList ()
+    sr = StackRunner()
+    sr.RunQueueList(10, QueueList())
+    sr.RunQueueList ( 10, QueueLinkedList () )
 
-    print ( "Stack operations using LIST" )
 
-    print ( "Push 4,5,6,7,8,10" )
-    stack.push ( 4 )
-    stack.push ( 5 )
-    stack.push ( 6 )
-    stack.push ( 7 )
-    stack.push ( 8 )
-    stack.push ( 10 )
 
-    print(stack)
-
-    p = stack.pop ()
-    print("Pop {0}".format(p) )
-
-    p = stack.pop ()
-    print("Pop {0}".format(p) )
-
-    print("Stack is now:")
-    print(stack)
-
-    stack = StackLinkedList ()
-
-    print ( "Stack operations using  LinkedList" )
-    print ("Push 4,5,6,7,8,10")
-    stack.push ( 4 )
-    stack.push ( 5 )
-    stack.push ( 6 )
-    stack.push ( 7 )
-    stack.push ( 8 )
-    stack.push ( 10 )
-
-    print(stack)
-
-    p = stack.pop ()
-    print("Pop {0}".format(p) )
-
-    p = stack.pop ()
-    print("Pop {0}".format(p) )
-
-    print ( "Stack is now:" )
-    print ( stack )
-
-    print ( "Queue operations using linked list" )
-    queue = QueueLinkedList()
-
-    print ( "Enqueue: 4,5,6,7,8,10" )
-    queue.enqueue ( 4 )
-    queue.enqueue ( 5 )
-    queue.enqueue ( 6 )
-    queue.enqueue ( 7 )
-    queue.enqueue ( 8 )
-    queue.enqueue ( 10 )
-    print(queue)
-
-    p = queue.dequeue ()
-    print("Dequeued {0}".format(p))
-    p = queue.dequeue ()
-    print ( "Dequeued {0}".format ( p ) )
-    print ( "After applying dequeue() two times" )
-    print(queue)
-
-    print("Queue List ----------------------------")
-
-    print ( "Queue operations using list" )
-    queue = QueueList()
-
-    print ( "Enqueue: 4,5,6,7,8,10" )
-    queue.enqueue ( 4 )
-    queue.enqueue ( 5 )
-    queue.enqueue ( 6 )
-    queue.enqueue ( 7 )
-    queue.enqueue ( 8 )
-    queue.enqueue ( 10 )
-    print(queue)
-
-    p = queue.dequeue ()
-    print("Dequeued {0}".format(p))
-    p = queue.dequeue ()
-    print ( "Dequeued {0}".format ( p ) )
-    print ( "After applying dequeue() two times" )
-    queue.printqueue ()
 
