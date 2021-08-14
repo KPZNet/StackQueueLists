@@ -58,9 +58,6 @@ class StackRunner:
         return  self.ls_timing
 
 
-
-
-
 if __name__ == '__main__' :
 
     sr = StackRunner()
