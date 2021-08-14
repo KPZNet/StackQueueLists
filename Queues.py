@@ -14,6 +14,10 @@ class BaseQueue:
     def __str__(self):
         pass
 
+    def qsize(self):
+        pass
+
+
 class QueueList(BaseQueue):
 
     def __init__(self) :
@@ -40,6 +44,9 @@ class QueueList(BaseQueue):
         for q in reversed(self.queuelist):
             r += str( q.data ) + " -> "
         return r
+
+    def qsize(self):
+        return len(self.queuelist)
 
 
 class QueueLinkedList(BaseQueue) :

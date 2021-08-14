@@ -21,29 +21,44 @@ class StackRunner:
         self.ls_timing = 0.0
         self.lls_timing = 0.0
         self.threadLock = threading.Lock ()
+        self.flagA = False
 
-    def AddtoQueue(self, qu, thr, runs, size) :
-        for k in range ( runs ) :
-            for i in range ( size ) :
-                self.threadLock.acquire()
-                qu.enqueue ( i )
-                self.threadLock.release ()
+    def AddtoQueue(self, qu, thr, runs) :
 
-    def RemovefromQueue(self, qu, thr, runs, size) :
         for k in range ( runs ) :
-            for i in range ( size ) :
-                self.threadLock.acquire ()
-                qu.dequeue ( )
-                self.threadLock.release ()
+            self.threadLock.acquire()
+            qu.enqueue ( k )
+            print("Add Queue Size: {0}".format(qu.qsize()))
+            self.threadLock.release ()
+        self.threadLock.acquire()
+        self.flagA = True
+        self.threadLock.release ()
+
+    def RemovefromQueue(self, qu, thr) :
+        while self.flagA == False:
+            self.threadLock.acquire()
+            qu.dequeue()
+            print("Remove Queue Size: {0}".format(qu.qsize()))
+            self.threadLock.release()
+
 
 
     def RunThreadedQueues(self):
         try :
-            t1 = threading.Thread ( target=self.AddtoQueue, args=(QueueList (), "Thread-1", 10000, 10000,) )
+            q = QueueList ()
+            start_time = time.perf_counter_ns()
+            t1 = threading.Thread ( target=self.AddtoQueue, args=(q, "Thread-1", 1000000) )
             t1.start()
 
-            t2 = threading.Thread ( target=self.RemovefromQueue, args=(QueueList (), "Thread-2", 10000, 10000,) )
+            t2 = threading.Thread ( target=self.RemovefromQueue, args=(q, "Thread-2") )
             t2.start()
+            stop_time = time.perf_counter_ns()
+            self.ls_timing = (stop_time - start_time) / NANO_TO_MS
+
+            t1.join()
+            t2.join()
+
+            return self.ls_timing
 
         except :
             print ( "Error: unable to start thread" )
@@ -96,7 +111,9 @@ if __name__ == '__main__' :
 
     sr = StackRunner()
 
-    sr.RunThreadedQueues()
+    tm = sr.RunThreadedQueues()
+    print("Thread Time: {0}".format(tm))
+
     exit(0)
 
 
