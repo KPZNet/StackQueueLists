@@ -26,14 +26,14 @@ class StackRunner:
         start_time = time.perf_counter_ns ()
 
         for i in range ( size ) :
-            stk.enqueue ( i )
+            stk.push ( i )
 
         for k in range(runs):
             for i in range ( deqs ) :
-                stk.enqueue ( i )
+                stk.push ( i )
 
             for j in range ( deqs ) :
-                stk.dequeue ()
+                stk.pop ()
 
         stop_time = time.perf_counter_ns ()
         ls_timing = (stop_time - start_time) / NANO_TO_MS
