@@ -45,5 +45,5 @@ class StackRunner:
             plt.bar( c, stack_times_df[c] )
         plt.xticks ( rotation=45 )
         plt.ylabel('Milliseconds')
-        plt.title('Stack Times')
+        plt.title('Stack Comparison Times')
         plt.show()
