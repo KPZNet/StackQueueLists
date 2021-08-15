@@ -1,8 +1,5 @@
 from Nodes import Node
 
-# A complete working Python program to demonstrate all
-# stack operations using a doubly linked list
-
 class BaseStack:
     def push(self, node):
         pass
@@ -21,21 +18,21 @@ class StackList(BaseStack):
     def __init__(self) :
         self.stk = []
 
-    def isEmpty(self): # checks whether the stack is empty or not
+    def isEmpty(self):
        if self.stk==[]:
           return True
        else:
           return False
 
-    def push(self,item): # Allow additions to the stack
+    def push(self,item):
        self.stk.append(item)
        top=len(self.stk)-1
 
     def pop(self):
         r = None
-        if self.isEmpty(): # verifies whether the stack is empty or not
+        if self.isEmpty():
           print("Underflow")
-        else: # Allow deletions from the stack
+        else:
           r =self.stk.pop()
         return r
 
@@ -62,18 +59,15 @@ class StackLinkedList (BaseStack) :
             cur = cur.next
         return out
 
-    # Check if the stack is empty
     def isEmpty(self) :
         return self.size == 0
 
-    # Push a value into the stack.
     def push(self, value) :
         node = Node ( value )
         node.next = self.head.next
         self.head.next = node
         self.size += 1
 
-    # Remove a value from the stack and return.
     def pop(self) :
         if self.isEmpty () :
             raise Exception ( "Popping from an empty stack" )
