@@ -23,6 +23,7 @@ class QueueList(BaseQueue):
     def __init__(self) :
         self.queuelist = []
 
+
     def enqueue(self, data) :
         n = Node ( data )
         self.queuelist.append(n)
@@ -34,10 +35,7 @@ class QueueList(BaseQueue):
         return r.data
 
     def isEmpty(self) :
-        r = False
-        if len ( self.queuelist ) == 0 :
-            r = True
-        return r
+        return len ( self.queuelist ) == 0
 
     def __str__(self):
         r = ""
