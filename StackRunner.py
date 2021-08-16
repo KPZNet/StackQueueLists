@@ -2,7 +2,7 @@ import time
 from matplotlib import pyplot as plt
 
 NANO_TO_MS = 1000000.0
-AVERAGES = 10
+AVERAGES = 50
 
 class StackRunner:
     def __init__(self):
@@ -27,8 +27,8 @@ class StackRunner:
     def RunStackList2(self, runs, size, deqs, stk):
         ls_timing = 0.0
 
-        for i in range ( size ) :
-            stk.push ( i )
+        for s in range ( size ) :
+            stk.push ( size )
 
         for r in range(AVERAGES):
             start_time = time.perf_counter_ns()
@@ -49,5 +49,5 @@ class StackRunner:
             plt.bar( c, stack_times_df[c] )
         plt.xticks ( rotation=45 )
         plt.ylabel('Milliseconds')
-        plt.title('Stack Comparison Times')
+        plt.title('Stack Times')
         plt.show()

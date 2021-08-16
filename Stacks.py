@@ -26,7 +26,6 @@ class StackList(BaseStack):
 
     def push(self,item):
        self.stk.append(item)
-       top=len(self.stk)-1
 
     def pop(self):
         r = None

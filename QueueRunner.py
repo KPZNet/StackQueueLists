@@ -2,7 +2,7 @@ import time
 from matplotlib import pyplot as plt
 
 NANO_TO_MS = 1000000.0
-AVERAGES = 10
+AVERAGES = 50
 
 class QueueRunner:
     def __init__(self):
@@ -27,8 +27,8 @@ class QueueRunner:
     def RunQueueList2(self, runs, size, deqs, qu):
         ls_timing = 0.0
 
-        for i in range(size):
-            qu.enqueue(i)
+        for s in range(size):
+            qu.enqueue(size)
 
         for r in range(AVERAGES):
             start_time = time.perf_counter_ns ()

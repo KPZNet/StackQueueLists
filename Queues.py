@@ -14,8 +14,6 @@ class BaseQueue:
     def __str__(self):
         pass
 
-    def qsize(self):
-        pass
 
 
 class QueueList(BaseQueue):
@@ -25,14 +23,13 @@ class QueueList(BaseQueue):
 
 
     def enqueue(self, data) :
-        n = Node ( data )
-        self.queuelist.append(n)
+        self.queuelist.append(data)
 
     def dequeue(self) :
         if self.isEmpty():
             return None
         r = self.queuelist.pop(0)
-        return r.data
+        return r
 
     def isEmpty(self) :
         return len ( self.queuelist ) == 0
@@ -43,8 +40,6 @@ class QueueList(BaseQueue):
             r += str( q.data ) + " -> "
         return r
 
-    def qsize(self):
-        return len(self.queuelist)
 
 
 class QueueLinkedList(BaseQueue) :
